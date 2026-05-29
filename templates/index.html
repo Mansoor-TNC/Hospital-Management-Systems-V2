@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>introduction page</title>
+    <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.3.4/vue.global.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/4.2.4/vue-router.global.prod.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
+
+    <style>
+        
+        .name{ 
+            padding: 10px;
+            background-color: rgb(236, 255, 241);
+            border: 3px solid rgb(4, 105, 0);
+            border-radius: 5px;
+            box-shadow: 0px 10px 25px rgba(6, 172, 0, 0.3);
+            color: rgb(6, 68, 0) ;
+            font-size: 180%;
+            text-shadow: 2px 2px 4px rgba(17, 255, 0, 0.3);     
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: fit-content;
+            width: 100%;
+            text-decoration: none;
+            font-family: lora ;
+            position: relative;
+        }
+
+        .heading{
+            padding: 10px;
+            background-color: rgb(236, 255, 241);
+            border: 3px solid rgb(4, 105, 0);
+            border-radius: 5px;
+            box-shadow: 0px 10px 25px rgba(6, 172, 0, 0.3);
+            color: rgb(6, 68, 0) ;
+            font-size: 180%;
+            text-shadow: 2px 2px 4px rgba(17, 255, 0, 0.3);     
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: fit-content;
+            width: 100%;
+            text-decoration: none;
+            font-family: lora ;
+            position: relative;
+        }
+
+        .actions {
+            position: absolute;
+            right: 20px;
+            display: flex;
+            gap: 20px;
+        }
+
+        button.box{
+            color: rgb(255, 255, 255) ;
+            text-align: center;
+            font-size: 65%;
+            font-weight: bold;
+            background-color: rgb(24, 114, 22);
+            margin: 0px;
+            padding: 5px;
+        }
+
+        button.box:hover{
+            transition: 0.5s;
+            background-color: rgb(17, 92, 17);
+            border: 1px solid black;
+            box-shadow: 0px 0px 7px rgb(24, 148, 30);
+
+        }
+
+        button.submit{
+            color: rgb(255, 255, 255) ;
+            text-align: center;
+            font-size: 110%;
+            font-weight: bold;
+            background-color: rgb(24, 114, 22);
+            margin: 0px;
+            padding: 5px;
+            border-radius: 10px;
+        }
+
+        button.submit:hover{
+            transition: 0.5s;
+            background-color: rgba(17, 92, 17, 0.947);
+            border: 1px solid black;
+            box-shadow: 0px 2px 10px rgb(0, 122, 6);
+        }
+        
+        .box{
+            color: rgb(255, 255, 255) ;
+            text-align: center;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 15px;
+            border: 0px;
+            border-radius: 10px;
+            height: fit-content;
+
+        }
+
+        .boxes{
+            display:flex; 
+            justify-content:space-between;
+            font-size:300%;
+            width:100%;
+        }
+
+        .boxes_content{
+            padding:3%; 
+            display: flex;
+            justify-content: center;
+            background-color:white; 
+            width:255px; 
+            margin: 1%;
+        }
+
+        .appointment{
+            text-align: center;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 10%;
+            padding: 5px;
+            border: 0px;
+            border-radius: 10px;
+            height: fit-content;
+            font-size: 80%;
+        }
+
+        .appointments{
+            border-radius:7px; 
+            font-weight:bold; 
+            box-shadow: 0 0 5px rgb(0,0,0,0.5); 
+            border:0px;
+            padding:2%; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color:white; 
+            width: 90%;
+            font-size: 25px;
+        }
+
+        .appointments_content{
+            display:flex; 
+            align-items: center;
+            justify-content:space-between;
+            width:100%;
+            margin-bottom: 2%;
+        }
+
+        .appointment_table{
+            background-color: rgb(241, 241, 241);
+            text-align: center;
+            font-size: 16px;
+            box-shadow: 0 0 2px rgb(0, 0, 0, 0.3);
+        }
+        
+        .appointment_table th, .appointment_table td{
+            border:1px solid rgb(0, 0, 0, 0.3);
+            padding: 2px;
+        }
+
+        .appointment:hover{
+            transition: 0.5s;
+            background-color: rgb(17, 92, 17);
+            box-shadow: 0px 0px 5px rgb(0, 0, 0);
+        }
+
+        .signup_box{
+            display: flex;
+            flex-direction: column ;
+            justify-self: center;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(219, 255, 226);
+            width: fit-content;
+            padding: 30px;
+            border-radius: 25px;
+            box-shadow: 0px 10px 40px rgb(0, 77, 13);
+            border: 5px solid rgb(0, 59, 2);
+            margin:100px;
+            height: fit-content;
+            font-family:lora;
+            font-weight:bolder ;
+            color: rgb(1, 69, 1);
+        } 
+
+        .signup_input{
+            width: 300px;
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+            background-color: white;
+        }
+
+        .search_input{
+            font-size:12px;
+            width: 380px;
+            padding: 3px;
+            border-radius: 5px;
+            background-color: white;
+        }
+
+        select{
+            width: 150px;
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+            background-color: #ffffff;
+        }
+
+        .question{
+            text-align: start;
+            color: green;
+            font-size: 150%;
+        }
+
+        .points{
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5) ;
+            padding: 15px;
+            margin: 30px;
+            font-weight: bold;
+            color: rgb(0, 57, 10);
+            font-size: 150%;
+            gap: 20px;
+            font-family:lora;
+            background-color: rgb(240, 253, 240)
+        }
+
+        .content{
+            font-size: 90%;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .text{
+            align-self: flex-start;
+            text-align: start;
+            font-size: 100%;
+            flex: 1;
+        }
+
+        .image{
+            border-radius: 10px;
+            width:40%;
+            height: auto;
+            margin-bottom: 50px;  
+        }    
+
+        .logout{
+            border-radius:7px; 
+            font-weight:bold; 
+            box-shadow: 0 0 5px rgb(0,0,0,0.5); 
+            font-size:65%;
+            border:0px;
+        }
+        .admin_logout:hover{
+            transition: 0.2s;
+            font-size: 70%;
+            box-shadow: 0 0 10px rgba(33, 75, 102, 0.5); 
+            border:1px solid rgba(40, 97, 118, 0.3);
+        }
+
+        .doctor_logout:hover{
+            transition: 0.2s;
+            font-size: 70%;
+            box-shadow: 0 0 10px rgba(102, 33, 33, 0.5); 
+            border:1px solid rgba(118, 40, 40, 0.3);
+        }
+
+        .patient_logout:hover{
+            transition: 0.2s;
+            font-size: 70%;
+            box-shadow: 0 0 10px rgba(101, 102, 33, 0.5); 
+            border:1px solid rgba(118, 117, 40, 0.3);
+        }
+        .side_bar {
+            width: 20%;
+            flex: 1;
+            height: 100vh;
+            font-family: lora;
+            text-align: center;
+            background-color: white;
+            box-shadow: 0 0 5px rgba(0, 0, 0);
+        }
+
+        .side_bar_options{
+            font-weight:bold;
+            margin-top:10%;
+        }
+
+        .side_menu {
+            display: none;
+        }
+
+        .mobile_menu {
+            border-radius: 10px;
+            width: 70%;
+            flex: 1;
+            background-color: white;
+            box-shadow: 0 0 5px rgba(0, 0, 0);
+            font-family: lora;
+            position: fixed;
+            top: 0;
+            left: -71%;
+            height: 100%;
+            font-size:100%;
+            transition: 0.3s;
+            z-index: 2;
+
+        }
+
+        .display{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            backdrop-filter: blur(5px);
+            background: rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .search_box{
+            display:flex; 
+            justify-content:center; 
+            align-items:center; 
+            height:fit-content; 
+            width:fit-content;
+        }
+
+        .mobile_menu.show {
+            filter: blur();
+            left: 0;
+        }
+
+        .footer{
+            background-color: rgb(236, 255, 241);
+            border: 2px solid rgb(4, 105, 0);
+            box-shadow: 5px 0px 20px rgba(0, 0, 0, 0.5);
+            font-size: 160%;
+            height: fit-content;
+            font-family:lora;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: rgb(0, 0, 0);
+            margin-bottom: 20px;
+        }
+
+        .error{
+            position: fixed;
+            z-index: 10;
+            top:5%;
+            left:60%;
+            transform: translateX(-50%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            
+        }
+
+        @keyframes error{
+            0% { opacity: 0; top:0}
+            10% { opacity: 1; top:5%}
+            90% { opacity: 1}
+            100% { opacity: 0}
+        }
+
+        @keyframes fade {
+            from{
+                opacity:1;
+                filter: blur(0px);
+            }
+
+            to{
+                opacity:0.6;
+                filter: blur(1px);
+            }
+        }
+
+        @keyframes show {
+            from{
+                opacity:0;
+                filter: blur(0px);
+            }
+
+            to{
+                opacity:1;
+            }
+        }
+
+        @media (max-width: 1500px) {
+            .boxes_content{
+                width: 280px;
+            }
+        }
+
+        
+        @media (max-width: 800px) {
+        .name {
+            
+            font-size: 150%;
+            justify-content: space-between;
+            }
+        
+        .heading{
+            font-size: 150%;
+
+        }
+
+        button.box{
+            font-size: 65%;
+        }
+        
+        .boxes{
+            font-size:250%;
+        }
+
+        .boxes_content{
+            width: 260px;
+        }
+
+        .appointments{
+            font-size: 20px;
+        }
+
+        .appointment_table{
+            font-size: 13px;
+        }
+
+        .actions{
+            position: static;
+        }
+        
+        .content{
+            flex-direction: column;
+            text-align: center;
+            font-size: 70%;
+        }
+
+        .question{
+            font-size: 100%;
+        }
+
+        
+        .image{
+            width: 60%;
+        }    
+
+        .side_bar {
+            display: none;
+        }
+
+        .search_input{
+            font-size: 90%;
+            width: 330px;
+            padding: 4px;
+        }
+
+        .side_menu {
+            display: block;
+        }
+
+        .footer{
+            font-size: 100%;
+        }
+
+        .error{
+            left: 50%;
+        }
+        
+        }
+
+        @media (max-width: 600px) {
+        .name {
+            font-size: 120%;
+            justify-content: space-between;
+        }
+
+        .appointments{
+            font-size: 15px;
+        }
+
+        .appointment_table{
+            font-size: 10px;
+        }
+
+
+        .heading{
+            font-size: 120%;
+
+        }
+        
+        button.box{
+            font-size: 65%;
+        }
+
+        .boxes{
+            font-size:200%;
+        }
+
+        .boxes_content{
+            width: 200px;
+        }
+
+        button.submit{
+            font-size: 90%;
+        }
+
+        .appointment{
+            font-size: 75%;
+        }
+
+        .actions{
+            position: static;
+        }
+
+        .points{
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .question{
+            font-size: 90%;
+        }
+
+        .content{
+            font-size: 65%;
+        }
+
+        .image{
+            width: 60%;
+        }    
+
+        .signup_input{
+            font-size: 90%;
+            width: 250px;
+            padding: 10px;
+            margin: 5px;
+        }
+
+        select{
+            font-size: 80%;
+            padding: 10px;
+            width: 150px;
+            margin: 5px;
+        }
+
+        h1{
+            font-size: 180%;
+        }
+        
+        .side_bar {
+            display: none;
+        }
+
+        .mobile_menu{
+            font-size: 85%;
+        }
+
+        .search_input{
+            font-size: 80%;
+            width: 180px;
+            padding: 3px;
+        }
+
+        .side_menu {
+            display: block;
+        }
+
+        .footer{
+            font-size: 80%;
+        }
+
+        .error{
+            left: 50%;
+        }
+        }
+
+        @media (max-width: 450px) {
+        .name {
+            font-size: 100%;
+            justify-content: space-between;
+        }
+
+        .heading{
+            font-size: 100%;
+
+        }
+        
+        button.box{
+            font-size: 65%;
+        }
+
+        .boxes{
+            font-size:150%;
+        }
+
+        .boxes_content{
+            width: 135px;
+        }
+
+        .appointment{
+            font-size: 65%;
+        }
+
+        .appointments{
+            font-size: 12px;
+        }
+
+        .appointment_table{
+            font-size: 7.5px;
+        }
+
+        button.submit{
+            font-size: 65%;
+            }
+
+        .actions{
+            gap:10px;
+            position: static;
+            margin-left: 10px;
+            }
+        
+        .question{
+            font-size: 80%;
+        }
+
+        .points{
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .content{
+            font-size: 50%;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .image{
+            width: 70%;
+        }
+
+        h1{
+            padding-top: 10px;
+            font-size: 120%;
+        }
+
+        .signup_box{
+            padding: 10px;
+        }
+
+        .signup_input{
+            font-size: 80%;
+            width: 170px;
+            padding: 5px;
+            margin: 5px;
+        }
+
+        select{
+            width: 100px;
+            font-size: 80%;
+            padding: 5px;
+            margin: 5px;
+        }
+
+        .side_bar {
+            display: none;
+        }
+
+        .mobile_menu{
+            font-size: 70%;
+        }
+
+        .search_input{
+            font-size: 70%;
+            width: 90px;
+            padding: 3px;
+        }
+
+        .side_menu {
+            display: block;
+        }
+        
+        .footer{
+            font-size: 60%;
+        }
+
+        .error{
+            left: 50%;
+        }
+        }
+
+
+    </style>
+</head>
+
+<body>
+<div id = "app" >
+    <router-view></router-view>
+</div>
+
+<script src="/static/app.js"></script>
+
+</body>
+</html>
