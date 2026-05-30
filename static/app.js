@@ -4279,7 +4279,7 @@ const doctor_provide_availability = {
         get_days(){
             const days = []
             const today = new Date()
-            for(let i = 1; i <= 7; i++){
+            for(let i = 0; i <= 7; i++){
                 const day = new Date()
                 day.setDate(today.getDate() + i)
                 const date_format = day.toLocaleDateString("en-CA")
