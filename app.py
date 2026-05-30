@@ -502,7 +502,7 @@ def Admin_Dashboard():
     departments = Department.query.all()
     blacklist_doctors = User.query.filter_by(user_role = "doctor", blacklist = True).all()
     blacklist_patients = User.query.filter_by(user_role = "patient", blacklist = True).all()
-    print(doctors)
+    print(today,todays)
         
     upcoming_appointments = []
     for i in upcoming:

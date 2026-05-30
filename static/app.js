@@ -3757,6 +3757,9 @@ const doctor_upcoming_appointments = {
                             <td>
                                 <button @click = "$router.push({path:'/doctor_view_history', query: { id: appointment.patient_id} })" class = "doctor_logout" style="border-radius:50px; font-size:150%; border:0;">👁</button>
                             </td>
+                            <td>
+                                <button v-if = "appointment.status === 'Booked'" @click = "$router.push({path:'/attend_patient', query: { patient_id: appointment.patient_id, date: appointment.date, appointment_id: appointment.id} })" class = "doctor_logout" style="border-radius:50px; font-size:150%; border:0;">🩺<p style = "font-size:60%; margin:0; padding-left:2%; padding-right:2%;">Attend</p></button>
+                            </td>
                         </tr>
                         <tr v-else style = "color:red; text-align:center; font-size:120%">
                             <td colspan="8" style = "padding:2%"> No Appointments Found </td>
